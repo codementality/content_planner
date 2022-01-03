@@ -1,0 +1,6 @@
+<bg=white;fg=black>                                                     </>
+<bg=white;fg=black>  Congratulations on installing this Drupal project! </>
+<bg=white;fg=black>                                                     </>
+
+Consider visiting the Dev Docs (<https://dev-docs.fruition.build/development/drupal/>)
+for more information on our most up-to-date Drupal development processes.

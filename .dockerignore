@@ -1,0 +1,16 @@
+/web/sites/default/files
+/web/sites/simpletest
+
+/.idea
+/.git
+/.composer
+/.yarn*
+
+/web/themes/custom/site_default/node_modules
+/web/themes/custom/site_default/.yarn
+/web/themes/custom/site_default/.npm
+/web/themes/custom/site_default/scss
+
+/config/secrets
+
+/docker-compose.yml

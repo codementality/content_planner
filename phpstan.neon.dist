@@ -1,0 +1,8 @@
+parameters:
+  # Ignore tests
+  excludePaths:
+    - *Test.php
+    - *TestBase.php
+  paths:
+    - web/modules/custom
+  level: 5

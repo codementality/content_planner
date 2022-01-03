@@ -1,0 +1,8 @@
+services:
+  db:
+    volumes:
+      - type: "bind"
+        source: "./../databases"
+        target: "/docker-entrypoint-initdb.d"
+    cap_add: 
+      - SYS_ADMIN

@@ -1,0 +1,174 @@
+{
+    "name": "fruition/drupal-skeleton",
+    "description": "Drupal 9 project",
+    "type": "project",
+    "license": "GPL-2.0-or-later",
+    "repositories": {
+        "drupal": {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        },
+        "assets": {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        },
+    },
+    "require": {
+        "composer/installers": "^1.2",
+        "cweagans/composer-patches": "^1.6",
+        "drupal/admin_toolbar": "^3",
+        "drupal/components": "^2.2",
+        "drupal/core-composer-scaffold": "^9.1",
+        "drupal/core-recommended": "^9.1",
+        "drupal/pathauto": "^1",
+        "drupal/twig_temp": "^1",
+        "drupal/twig_tweak": "^3.0",
+        "drush/drush": "^10",
+        "oomphinc/composer-installers-extender": "^2",
+    },
+    "require-dev": {
+        "ext-json": "*",
+        "drupal/core-dev": "^9.1",
+        "mglaman/phpstan-drupal": "^0.12.6",
+        "phpspec/prophecy-phpunit": "^2",
+        "phpstan/extension-installer": "^1.0",
+        "symfony/console": "^3|^4|^5",
+    },
+    "conflict": {
+        "drupal/drupal": "*"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "sort-packages": true,
+        "platform": {
+            "ext-apcu": "1",
+            "ext-bcmath": "1",
+            "ext-ctype": "1",
+            "ext-curl": "1",
+            "ext-date": "1",
+            "ext-dom": "1",
+            "ext-exif": "1",
+            "ext-fileinfo": "1",
+            "ext-filter": "1",
+            "ext-ftp": "1",
+            "ext-gd": "1",
+            "ext-hash": "1",
+            "ext-iconv": "1",
+            "ext-json": "1",
+            "ext-libxml": "1",
+            "ext-mbstring": "1",
+            "ext-mysqli": "1",
+            "ext-mysqlnd": "1",
+            "ext-openssl": "1",
+            "ext-pcntl": "1",
+            "ext-pcre": "1",
+            "ext-pdo_mysql": "1",
+            "ext-pdo_sqlite": "1",
+            "ext-posix": "1",
+            "ext-readline": "1",
+            "ext-session": "1",
+            "ext-sodium": "1",
+            "ext-sqlite3": "1",
+            "ext-standard": "1",
+            "ext-tokenizer": "1",
+            "ext-xml": "1",
+            "ext-xmlreader": "1",
+            "ext-xmlwriter": "1",
+            "ext-zip": "1",
+            "ext-zlib": "1",
+            "php": "7.4.0"
+        },
+        "allow-plugins": {
+            "cweagans/composer-patches": true,
+            "drupal/core-composer-scaffold": true,
+            "drupal/core-project-message": true,
+            "composer/installers": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "oomphinc/composer-installers-extender": true,
+            "phpstan/extension-installer": true
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Fruition\\Skeleton\\Drupal\\": "src/"
+        }
+    },
+    "scripts": {
+        "config-export": "docker-compose exec -T --user $(id -u) web drush -y config-export",
+        "static-analysis": [
+            "phpcs -p",
+            "phpstan analyze --memory-limit 1G"
+        ],
+        "update-core": [
+            "@composer update drupal/core \"drupal/core-*\" symfony/* --with-all-dependencies"
+        ]
+    },
+    "scripts-descriptions": {
+        "config-export": "Recommended command to export configuration from outside of container runtime.",
+        "static-analysis": "Statically analyze code for style and best practice.",
+        "update-core": "Recommended command to update Drupal core dependencies."
+    },
+    "extra": {
+        "composer-exit-on-patch-failure": true,
+        "drupal-scaffold": {
+            "locations": {
+                "web-root": "web/"
+            },
+            "file-mapping": {
+                "[web-root]/.ht.router.php": false,
+                "[web-root]/INSTALL.txt": false,
+                "[web-root]/LICENSE.txt": false,
+                "[web-root]/README.txt": false,
+                "[web-root]/example.gitignore": false,
+                "[web-root]/sites/development.services.yml": false,
+                "[web-root]/web.config": false
+            },
+            "initial": {
+                ".htaccess": "web/.htaccess",
+                "robots.txt": "web/robots.txt",
+                "sites/default/default.services.yml": "web/sites/default/default.services.yml",
+                "sites/default/default.settings.php": "web/sites/default/default.settings.php"
+            },
+            "omit-defaults": true
+        },
+        "installer-types": [
+            "bower-asset",
+            "npm-asset"
+        ],
+        "installer-paths": {
+            "web/core": [
+                "type:drupal-core"
+            ],
+            "web/libraries/{$name}": [
+                "type:bower-asset",
+                "type:drupal-library",
+                "type:npm-asset"
+            ],
+            "web/modules/contrib/{$name}": [
+                "type:drupal-module"
+            ],
+            "web/ds": [
+                "type:design-system"
+            ],
+            "web/profiles/contrib/{$name}": [
+                "type:drupal-profile"
+            ],
+            "web/themes/contrib/{$name}": [
+                "type:drupal-theme"
+            ],
+            "drush/Commands/contrib/{$name}": [
+                "type:drupal-drush"
+            ],
+            "web/modules/custom/{$name}": [
+                "type:drupal-custom-module"
+            ],
+            "web/themes/custom/{$name}": [
+                "type:drupal-custom-theme"
+            ]
+        },
+        "patchLevel": {
+            "drupal/core": "-p2"
+        },
+    }
+}

@@ -11,7 +11,7 @@
         "assets": {
             "type": "composer",
             "url": "https://asset-packagist.org"
-        },
+        }
     },
     "require": {
         "composer/installers": "^1.2",
@@ -24,7 +24,7 @@
         "drupal/twig_temp": "^1",
         "drupal/twig_tweak": "^3.0",
         "drush/drush": "^10",
-        "oomphinc/composer-installers-extender": "^2",
+        "oomphinc/composer-installers-extender": "^2"
     },
     "require-dev": {
         "ext-json": "*",

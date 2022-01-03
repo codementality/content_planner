@@ -1,0 +1,7 @@
+uuid: 746aac2b-c344-4364-b1b1-a1db90ef2c8d
+langcode: en
+status: true
+dependencies: {  }
+id: test_content_type
+label: 'Test Content Type'
+color: '#0074bd'

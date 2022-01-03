@@ -1,0 +1,10 @@
+uuid: 09db2a27-6050-4cee-a7a8-e0e462bcb689
+langcode: en
+status: true
+dependencies:
+  module:
+    - content_kanban
+id: content_kanban_log.token
+label: Token
+targetEntityType: content_kanban_log
+cache: true

@@ -21,6 +21,7 @@
         "drupal/content_planner": "^1@beta",
         "drupal/core-composer-scaffold": "^9.1",
         "drupal/core-recommended": "^9.1",
+        "drupal/module_filter": "^3.2",
         "drupal/pathauto": "^1",
         "drupal/twig_temp": "^1",
         "drupal/twig_tweak": "^3.0",
